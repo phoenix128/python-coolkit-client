@@ -72,7 +72,14 @@ class CoolkitDeviceControl:
 
         await cls.connect()
         while True:
-            data = await cls._ws_read()
+            try:
+                data = await cls._ws_read()
+            except:
+                Log.warning("Websocket connection closed unexpectedly. Reconnecting in 5 seconds.")
+                await asyncio.sleep(5)
+                await cls.connect()
+                continue
+
             if data is not None:
                 if 'deviceid' in data and 'params' in data:
                     device_id = data.get('deviceid')

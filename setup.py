@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="coolkit_client-phoenix",
-    version="1.0.0",
+    name="coolkit-client-phoenix",
+    version="1.0.2",
     author="Riccardo Tempesta",
     author_email="info@riccardotempesta.com",
     description="Sonoff control library through coolkit/ewelink cloud",
